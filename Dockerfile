@@ -11,8 +11,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy model artifacts and server code
+# Copy model artifacts, config, and server code
 COPY models/ ./models/
+COPY config.py .
 COPY api_server.py .
 
 EXPOSE 8000
