@@ -17,7 +17,8 @@ HAND_LANDMARKER_TASK_PATH = os.path.join(BASE_DIR, "hand_landmarker.task")
 # Network & Cloud API
 DEFAULT_API_HOST = "127.0.0.1"
 DEFAULT_API_PORT = 8000
-API_INFERENCE_URL = os.getenv("ASL_API_URL", f"http://{DEFAULT_API_HOST}:{DEFAULT_API_PORT}/predict")
+# Live cloud endpoint on Render (fallback to localhost if overridden via env)
+API_INFERENCE_URL = os.getenv("ASL_API_URL", "https://fcc-proj.onrender.com/predict")
 
 # Model & Features
 INPUT_FEATURE_COUNT = 42  # 21 landmarks * (x, y) relative normalized coordinates
